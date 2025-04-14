@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telugu Tune Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Telugu Tune Finder</h1>
+        <p class="description">Find any Telugu song you love — old hits, new releases, and everything in between. Start typing a track or artist name below.</p>
+        <p class="description">Search By Movie Name or Song Name</p>
+        <input type="text" id="songSearch" class="search-bar" oninput="showSuggestions(this.value)" placeholder="Search for a Telugu song or artist...">
+        <div id="suggestions" class="suggestions-list"></div>
+        <button class="submit-button">Search</button>
+    </div>
+    <footer>
+        <p>© 2025 Telugu Tune Finder. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
