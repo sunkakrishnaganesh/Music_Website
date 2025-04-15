@@ -3,7 +3,7 @@ const songs = [
     { title: "court", movie: "court", artist: "Telvadh" },
     { title: "Butta Bomma", movie: "Ala Vaikunthapurramuloo", artist: "Armaan Malik" },
     { title: "pushpa", movie: "Pushpa: The Rise", artist: "Sid Sriram" },
-    { title: "Ramuloo Ramulaa", movie: "Ala Vaikunthapurramuloo", artist: "Anurag Kulkarni, Mangli" },
+    { title: "oy", movie: "oy", artist: "Telvadh" },
     { title: "Oo Antava Oo Oo Antava", movie: "Pushpa: The Rise", artist: "Indravathi Chauhan" },
     { title: "Inkem Inkem Inkem Kaavaale", movie: "Geetha Govindam", artist: "Sid Sriram" },
     { title: "Jai Balayya", movie: "Akhanda", artist: "Geetha Madhuri" },
