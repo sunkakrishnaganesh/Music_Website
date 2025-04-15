@@ -195,107 +195,126 @@
 
   <script>
     const songs = [
-      {
-        title: 'Oo Antava Mawa Oo Antava',
-        artist: 'Indravathi Chauhan & Mangli',
-        audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744114520/pushpa%202/Oo_Antava_Oo_Oo_Antava_cmzan5.mp3',
-        albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744114723/pushpa%202/oo_antava_bmkuup.jpg'
-      },
-      {
-        title: 'Ey Bidda Edhi Na Adda',
-        artist: 'Nakash Aziz',
-        audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744114513/pushpa%202/Eyy_Bidda_Idhi_Naa_Adda_p9uot3.mp3',
-        albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744114723/pushpa%202/ey_bidda_edhi_na_adda_rdxhdx.jpg'
-      },
-      {
-        title: 'Saami Saami',
-        artist: 'Ananya Bhat',
-        audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744114517/pushpa%202/Srivalli_xseqr9.mp3',
-        albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744114724/pushpa%202/sami_sami_k2rmhk.jpg'
-      },
-      {
-        title: 'Srivalli',
-        artist: 'Sid Sriram',
-        audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744114508/pushpa%202/Saami_Saami_t9fery.mp3',
-        albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744114724/pushpa%202/srivalli_wehfmu.jpg'
-      }
+        {
+            title: 'Pushpa Pushpa Song',
+            artist: 'Nakash Aziz',
+            audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744731252/pushpa/Pushpa_Pushpa_pnmswm.mp3',
+            albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744731460/pushpa/pushpa_pushpa_ppm4r3.jpg'
+        },
+        {
+            title: 'Sooseki Song',
+            artist: 'Shreya Ghoshal',
+            audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744731253/pushpa/Sooseki_l3fgor.mp3',
+            albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744731461/pushpa/sooseki_song_auqyxm.jpg'
+        },
+        {
+            title: ' Kissik Song',
+            artist: 'Sublahshini',
+            audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744731301/pushpa/Kissik_r3mcsg.mp3',
+            albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744731446/pushpa/kissik_song_pbe4ej.jpg'
+        },
+        {
+            title: 'Peelings Song',
+            artist: ' Shankarr Babu Kandukoori, Laxmi Dasa',
+            audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744731250/pushpa/Peelings_jl4y6a.mp3',
+            albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744731460/pushpa/peelings_lxb07d.jpg'
+        },
+        {
+            title: 'Gango Renuka Thalli Song',
+            artist: ' Mahalingam',
+            audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744731242/pushpa/Gango_Renuka_Thalli_iucg04.mp3',
+            albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744731446/pushpa/gango_renuka_thalli_hvmqi6.jpg'
+        },
+        {
+            title: ' Dammunte Pattukora Song',
+            artist: ' Allu Arjun',
+            audioSrc: 'https://res.cloudinary.com/djontsvk9/video/upload/v1744731217/pushpa/Dammunte_Pattukora_tokd9m.mp3',
+            albumArtSrc: 'https://res.cloudinary.com/djontsvk9/image/upload/v1744731446/pushpa/dammunte_pattukora_tdgsez.jpg'
+        },
+
     ];
 
-    const songList = document.getElementById('songList');
-    const audioPlayer = document.getElementById('audioPlayer');
-    const albumArt = document.getElementById('albumArt');
-    const songTitle = document.getElementById('songTitle');
-    const songArtist = document.getElementById('songArtist');
+        const songList = document.getElementById('songList');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const albumArt = document.getElementById('albumArt');
+        const songTitle = document.getElementById('songTitle');
+        const songArtist = document.getElementById('songArtist');
 
-    let currentIndex = 0;
-    const likedSongs = new Set();
+        let currentIndex = 0;
+        const likedSongs = new Set();
 
-    function loadSong(index) {
-      const song = songs[index];
-      audioPlayer.src = song.audioSrc;
-      albumArt.src = song.albumArtSrc;
-      songTitle.textContent = song.title;
-      songArtist.textContent = song.artist;
-    }
-
-    function playSong(index) {
-      loadSong(index);
-      audioPlayer.play();
-    }
-
-    songs.forEach((song, index) => {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'song-button';
-
-      const label = document.createElement('span');
-      label.textContent = `${song.title} - ${song.artist}`;
-
-      const likeBtn = document.createElement('button');
-      likeBtn.className = 'like-btn';
-      likeBtn.innerHTML = '♡';
-      likeBtn.onclick = (e) => {
-        e.stopPropagation();
-        if (likedSongs.has(index)) {
-          likedSongs.delete(index);
-          likeBtn.classList.remove('liked');
-          likeBtn.innerHTML = '♡';
-        } else {
-          likedSongs.add(index);
-          likeBtn.classList.add('liked');
-          likeBtn.innerHTML = '♥';
+        function loadSong(index) {
+        const song = songs[index];
+        audioPlayer.src = song.audioSrc;
+        albumArt.src = song.albumArtSrc;
+        songTitle.textContent = song.title;
+        songArtist.textContent = song.artist;
         }
-        console.log([...likedSongs].map(i => songs[i].title));
-      };
 
-      wrapper.onclick = () => {
-        currentIndex = index;
-        playSong(currentIndex);
-      };
-
-      wrapper.appendChild(label);
-      wrapper.appendChild(likeBtn);
-      songList.appendChild(wrapper);
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + songs.length) % songs.length;
-      playSong(currentIndex);
-    });
-
-    document.getElementById('playBtn').addEventListener('click', () => {
-      if (audioPlayer.paused) {
+        function playSong(index) {
+        loadSong(index);
         audioPlayer.play();
-      } else {
-        audioPlayer.pause();
-      }
-    });
+        }
 
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % songs.length;
-      playSong(currentIndex);
-    });
+        songs.forEach((song, index) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'song-button';
 
-    loadSong(currentIndex);
-  </script>
+        const label = document.createElement('span');
+        label.textContent = `${song.title} - ${song.artist}`;
+
+        const likeBtn = document.createElement('button');
+        likeBtn.className = 'like-btn';
+        likeBtn.innerHTML = '♡';
+        likeBtn.onclick = (e) => {
+            e.stopPropagation();
+            if (likedSongs.has(index)) {
+            likedSongs.delete(index);
+            likeBtn.classList.remove('liked');
+            likeBtn.innerHTML = '♡';
+            } else {
+            likedSongs.add(index);
+            likeBtn.classList.add('liked');
+            likeBtn.innerHTML = '♥';
+            }
+            console.log([...likedSongs].map(i => songs[i].title));
+        };
+
+        wrapper.onclick = () => {
+            currentIndex = index;
+            playSong(currentIndex);
+        };
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(likeBtn);
+        songList.appendChild(wrapper);
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+        playSong(currentIndex);
+        });
+
+        document.getElementById('playBtn').addEventListener('click', () => {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+        } else {
+            audioPlayer.pause();
+        }
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % songs.length;
+        playSong(currentIndex);
+        });
+
+        // Auto-play the next song when the current one ends
+        audioPlayer.addEventListener('ended', () => {
+        currentIndex = (currentIndex + 1) % songs.length;
+        playSong(currentIndex);
+        });
+
+        loadSong(currentIndex);
+     </script>
 </body>
 </html>
